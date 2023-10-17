@@ -17,5 +17,9 @@ for (let [slug, url] of Object.entries(redirects)) {
 
     const html = templateHTML.replaceAll('https://example/com', url)
 
-    console.log(html)
+    const folderPath = path.join(__dirname, 'out', slug)
+    fs.mkdirSync(folderPath, {recursive: true})
+
+    // Create an index.html in each slug directory
+    fs.writeFileSync(path.join(folderPath, 'index.html'), html)
 }
