@@ -12,3 +12,6 @@ console.log(redirects)
 // 2. Generate an html page for each redirect ur; from template.jtml
 const templateHTML = fs.readFileSync(path.join(__dirname, 'template.html'), 'utf-8')
 
+for (let [slug, url] of Object.entries(redirects)) {
+    console.log('Generating HTML Page for ', slug)
+}
